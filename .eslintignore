@@ -1,0 +1,10 @@
+config/
+scripts/
+target/
+build/
+src/layout/navigation/icons/
+*FhResource*.js
+*Resource.js
+*ResourceBundle.js
+src/resources
+*log4js.js

@@ -1,0 +1,100 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "commonjs": true
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "react-app",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-redux/recommended",
+    "prettier",
+    "prettier/react",
+    "plugin:prettier/recommended"
+  ], //extending react-app, which uses prettier and prettier/react. So add to avoid prettier conflicts
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["prettier", "react-redux"],
+  "globals": {
+    "__DEV__": true
+  },
+  "rules": {
+    // Forbid the import of external modules that are not declared in the package.json's dependencies, devDependencies,
+    // optionalDependencies, peerDependencies, or bundledDependencies
+    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
+    "import/no-extraneous-dependencies": ["error", { "packageDir": "." }],
+    // Recommend not to leave any console.log in your code
+    // Use console.error, console.warn and console.info instead
+    // https://eslint.org/docs/rules/no-console
+    "no-console": [
+      "error",
+      {
+        "allow": ["warn", "error", "info"]
+      }
+    ],
+    // Prefer destructuring from arrays and objects
+    // http://eslint.org/docs/rules/prefer-destructuring
+    "prefer-destructuring": "off",
+    "experimentalDecorators": "off",
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": true,
+        "classes": true,
+        "variables": false // need to be changed to true going forward
+      }
+    ],
+    "no-alert": "error", // airbnb is using warn
+    "func-names": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
+    "arrow-body-style": "off",
+    "comma-dangle": [1, "never"],
+    "function-paren-newline": "warn",
+    "guard-for-in": "error",
+    "no-underscore-dangle": "warn",
+    // "no-multi-assign": 0, // can cause errors
+    // "no-param-reassign": 0, // can cause errors
+    // "no-plusplus": 0, // can cause errors
+    // Ensure <a> tags are valid
+    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["to"],
+        "aspects": ["noHref", "invalidHref", "preferButton"]
+      }
+    ],
+    "jsx-a11y/click-events-have-key-events": "warn", // need to be changed to error going forward
+    "jsx-a11y/no-noninteractive-element-interactions": "warn", // need to be changed to error going forward
+    "jsx-a11y/no-static-element-interactions": "warn", // need to be changed to error going forward
+    "jsx-quotes": "off",
+    // Allow .js files to use JSX syntax
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
+    "react/prefer-stateless-function": "warn", // need to be changed to error going forward
+    "react/forbid-prop-types": "warn", // need to be changed to error going forward
+    "react/prop-types": 1, // need to be changed to error going forward
+    "react/destructuring-assignment": "off",
+    "react-redux/connect-prefer-named-arguments": 2,
+    // ESLint plugin for prettier formatting
+    // https://github.com/prettier/eslint-plugin-prettier
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+    // "react/jsx-one-expression-per-line": "off",
+  }
+}
